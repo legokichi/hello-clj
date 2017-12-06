@@ -23,6 +23,7 @@ lein new hello-clj
 * https://github.com/technomancy/leiningen/blob/master/doc/TUTORIAL.md
 
 ```sh
+lein deps
 lein repl
 lein run main
 lein uberjar main
