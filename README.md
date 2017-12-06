@@ -26,6 +26,8 @@ lein new hello-clj
 lein deps
 lein repl
 lein run main
+lein typed check
+lein typed coverage
 lein uberjar main
 java -jar ./target/hello-clj-0.1.0-SNAPSHOT-standalone.jar
 ```

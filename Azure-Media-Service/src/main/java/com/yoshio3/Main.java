@@ -57,9 +57,7 @@ public class Main {
             ListResult<AssetInfo> listAssetID = main.listAssetID();
             listAssetID.stream().forEach((AssetInfo asset) -> {
                 try {
-                    //
-                    downloadAsset(asset);
-                    //main.redactFaceFromVideo(asset);
+                    main.redactFaceFromVideo(asset);
                 } catch (Exception ex) {
                     LOGGER.log(Level.SEVERE, null, ex);
                 }

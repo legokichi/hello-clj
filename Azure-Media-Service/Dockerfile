@@ -12,15 +12,14 @@ RUN apt-get install -y apt-transport-https software-properties-common ppa-purge 
 RUN add-apt-repository ppa:webupd8team/java
 RUN apt-get update
 RUN apt-get install -y default-jre
-RUN apt-get install -y oracle-java*-installer
+RUN apt-get install -y oracle-java8-installer oracle-java8-set-default
 RUN apt-get insatll -y maven
 
 COPY ./* /opt/media-redactor/
+WORKDIR /opt/media-redactor/
 
 RUN mvn clean package
 RUN mvn compile
 RUN mvn package
-
-
 
 CMD [mvn exec:java]
