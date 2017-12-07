@@ -33,13 +33,13 @@
       (.. mediaService (delete (AccessPolicy/delete (.. uploadAccessPolicy (getId) ) ) ) )
       resultAsset)
     (catch Exception e 
-      (println "uploadFileAndCreateAsset caught exception: " (.getMessage e) )
+      (println "uploadFileAndCreateAsset caught exception: " (.. e (getMessage)) )
       (throw e) ) ) )
 
 
 (defn downloadAsset [asset]
   (try
-    (let [storageConnectionString "DefaultEndpointsProtocol=https;AccountName=ino1hackfes1;AccountKey=QaWqvulqF/8m5pFBn8rSabPYj2jCQViIFymEb0O9pHo9lKrFoWJRiwbOykn6sM9KopTCXDl/v6ZhTjgNuIUnJA==;EndpointSuffix=core.windows.net"
+    (let [storageConnectionString "DefaultEndpointsProtocol=https;AccountName=ino1hackfes1;x;EndpointSuffix=core.windows.net"
           account (CloudStorageAccount/parse storageConnectionString)
           serviceClient (.. account (createCloudBlobClient) )
           ;; Container name must be lower case.
@@ -126,10 +126,10 @@
 
 (defn -main [& args]
   (try
-    (let [TENANT_ID (or (System/getenv "TENANT_ID") "9bdef4bf-da9d-4e5d-a25a-5935f2dad4d1")
-          CLIENT_ID (or (System/getenv "CLIENT_ID") "ef0a1623-0377-412e-84da-3aec53b0fe71")
-          CLIENT_KEY (or (System/getenv "CLIENT_KEY") "a2ojjEQDTkJahM/tICGyAIFF0mP7BhA+6VMxM5m78J1=")
-          REST_API_ENDPOINT (or (System/getenv "REST_API_ENDPOINT") "https://ino1hackfes12017.restv2.japaneast.media.azure.net/api/")
+    (let [TENANT_ID (or (System/getenv "TENANT_ID") "x")
+          CLIENT_ID (or (System/getenv "CLIENT_ID") "x")
+          CLIENT_KEY (or (System/getenv "CLIENT_KEY") "x")
+          REST_API_ENDPOINT (or (System/getenv "REST_API_ENDPOINT") "https:x")
           INPUT_FILE (or (System/getenv "INPUT_FILE") "/home/legokichi/b.mp4")
           executorService (Executors/newFixedThreadPool 1)
           ;; Connect to Media Services API with service principal and client symmetric key //アクセス・トークンの取得

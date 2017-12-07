@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:16.04
 ENV DEBIAN_FRONTEND "noninteractive"
 
 RUN rm -rf /var/lib/apt/lists/*
@@ -19,7 +19,4 @@ COPY ./* /opt/media-redactor/
 WORKDIR /opt/media-redactor/
 
 RUN mvn clean package
-RUN mvn compile
-RUN mvn package
 
-CMD [mvn exec:java]
